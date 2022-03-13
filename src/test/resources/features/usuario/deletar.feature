@@ -1,8 +1,8 @@
 #language: pt
-@API
-Funcionalidade: Cadastrar usuário
+@all @deletar_usuario
+Funcionalidade: Deletar usuário
 
-  Cenario: Cadastrar usuário com sucesso
-    Dado que realizo a busca de usuário via api
-    Então valido a lista de usuários retornada
+  Cenario: Deletar usuário com sucesso
+    Dado que realizo a exclusao do usuario "XPTO"
+    Então valido a mensagem retornada "Registro excluído com sucesso"
     E valido o retorno da api com "200"

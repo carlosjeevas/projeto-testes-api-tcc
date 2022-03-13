@@ -1,5 +1,5 @@
 #language: pt
-@API
+@all @cadastrar_usuario
 Funcionalidade: Cadastrar usuário
 
   Cenario: Cadastrar usuário administrador com sucesso
