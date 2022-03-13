@@ -1,5 +1,6 @@
 package service;
 
+import bean.ServiceBean;
 import dto.UsuarioDTO;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -26,12 +27,14 @@ public class CadastrarService {
 		request.setAccept( "*/*" );
 		request.setContentType( "application/json" );
 
-		log.info( "return api cadastrar" );
+		log.info( "Retorno da API cadastrar" );
 		response = given()
 				.log()
 				.all()
 				.spec( request.build() )
 				.body( usuario )
 				.post( URL );
+
+		ServiceBean.setResponse( response );
 	}
 }

@@ -2,7 +2,7 @@
 @all @cadastrar_usuario
 Funcionalidade: Cadastrar usuário
 
-  @teste
+
   Cenario: Cadastrar usuário administrador com sucesso
     Dado que quero cadastrar o usuario
       | NOME   | EMAIL             | SENHA     | ADMINISTRADOR |

@@ -24,7 +24,12 @@ public class CadastrarSteps {
             usuario.setNome( columns.get( "NOME" ) );
             usuario.setEmail( columns.get( "EMAIL" ) );
             usuario.setPassword( columns.get( "SENHA" ) );
-            usuario.setAdministrador( columns.get( "ADMINISTRADOR" ) );
+
+            if( columns.get( "ADMINISTRADOR" ).toUpperCase().equals( "SIM" ) ) {
+                usuario.setAdministrador( "true" );
+            }
+            else
+                usuario.setAdministrador( "false" );
         }
     }
 

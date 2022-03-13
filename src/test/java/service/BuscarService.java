@@ -27,4 +27,5 @@ public class BuscarService {
                 .spec( request.build() )
                 .get( "https://serverest.dev/usuarios" );
     }
+
 }
