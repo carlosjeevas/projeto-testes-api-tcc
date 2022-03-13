@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 
 public class CadastrarLogic {
 
-	public void dadosUsuario(String nome, String email, String senha, Boolean administrador) {
+	public void dadosUsuario(String nome, String email, String senha, String administrador) {
 
 		RestAssured.given()
 		.body(
