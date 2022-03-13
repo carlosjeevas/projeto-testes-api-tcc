@@ -1,5 +1,5 @@
 #language: pt
-@API
+@all @buscar_usuario
 Funcionalidade: Buscar usuários
 
   Cenario: Buscar todos os usuários

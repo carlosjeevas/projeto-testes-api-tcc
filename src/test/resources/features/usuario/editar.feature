@@ -1,5 +1,5 @@
 #language: pt
-@API
+@all @editar_usuario
 Funcionalidade: Editar usuário
 
   Cenario: Editar usuário com dados válidos
