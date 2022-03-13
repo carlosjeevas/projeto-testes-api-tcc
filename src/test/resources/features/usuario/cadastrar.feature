@@ -2,8 +2,9 @@
 @all @cadastrar_usuario
 Funcionalidade: Cadastrar usuário
 
+  @teste
   Cenario: Cadastrar usuário administrador com sucesso
-    Dado que quero cadastrar o usuario:
+    Dado que quero cadastrar o usuario
       | NOME   | EMAIL             | SENHA     | ADMINISTRADOR |
       | Calebe | cabelo@sem.com.br | minoxidil | Sim           |
     Quando envio os dados para a api de cadastro

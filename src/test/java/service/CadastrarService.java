@@ -1,24 +1,37 @@
 package service;
 
+import dto.UsuarioDTO;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+import utils.PropertyReader;
 
+import static io.restassured.RestAssured.given;
+
+@Slf4j
 public class CadastrarService {
 
-	public void dadosUsuario(String nome, String email, String senha, String administrador) {
+	@Getter
+	private Response response;
 
-		RestAssured.given()
-		.body(
-				"{\n" + 
-				"	\"nome\":" + nome + ",\n" + 
-				"	\"email\":" + email +",\n" +
-				"	\"senha\":" + senha + ",\n" +
-				"	\"administrador\":" + administrador +",\n" +
-				"}")
-		.contentType(ContentType.JSON)
-		.when()
-		.post("/usuarios");
+	private final static String URL = PropertyReader.getProperty("urlUsuarios");
 
+	public void cadastrarUsuario( UsuarioDTO usuario ) {
+
+		RequestSpecBuilder request = new RequestSpecBuilder();
+
+		request.setAccept( "*/*" );
+		request.setContentType( "application/json" );
+
+		log.info( "return api cadastrar" );
+		response = given()
+				.log()
+				.all()
+				.spec( request.build() )
+				.body( usuario )
+				.post( URL );
 	}
-
 }

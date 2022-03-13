@@ -20,12 +20,11 @@ public class BuscarService {
         request.setAccept( "*/*" );
         request.setContentType( "application/json" );
 
+        log.info( "return api buscar" );
         response = given()
                 .log()
                 .all()
                 .spec( request.build() )
                 .get( "https://serverest.dev/usuarios" );
-
-        log.info( "create vehicle request:" );
     }
 }

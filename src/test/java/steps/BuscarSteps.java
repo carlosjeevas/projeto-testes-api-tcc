@@ -20,11 +20,6 @@ public class BuscarSteps {
 
     }
 
-    @Então( "valido o retorno da api com {string}" )
-    public void valido_o_retorno_da_api( String retorno ) {
-
-    }
-
     @Então( "valido que o usuario foi retornado com sucesso" )
     public void valido_que_o_usuario_foi_retornado_com_sucesso() {
 
