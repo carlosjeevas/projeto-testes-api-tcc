@@ -1,9 +1,9 @@
-package logic;
+package service;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
-public class CadastrarLogic {
+public class CadastrarService {
 
 	public void dadosUsuario(String nome, String email, String senha, Boolean administrador) {
 
