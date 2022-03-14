@@ -15,10 +15,10 @@ import static io.restassured.RestAssured.given;
 @Slf4j
 public class CadastrarService {
 
+	private final static String URL = PropertyReader.getProperty("urlUsuarios");
+
 	@Getter
 	private Response response;
-
-	private final static String URL = PropertyReader.getProperty("urlUsuarios");
 
 	public void cadastrarUsuario( UsuarioDTO usuario ) {
 
@@ -27,7 +27,7 @@ public class CadastrarService {
 		request.setAccept( "*/*" );
 		request.setContentType( "application/json" );
 
-		log.info( "Retorno da API cadastrar" );
+		log.info( "Retorno da API Cadastrar" );
 		response = given()
 				.log()
 				.all()

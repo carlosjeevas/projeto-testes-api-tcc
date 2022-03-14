@@ -19,7 +19,6 @@ public class CadastrarSteps {
 
         List< Map< String, String > > rows = dados.asMaps( String.class, String.class );
 
-
         for( Map< String, String > columns : rows ) {
             usuario.setNome( columns.get( "NOME" ) );
             usuario.setEmail( columns.get( "EMAIL" ) );
@@ -27,16 +26,13 @@ public class CadastrarSteps {
 
             if( columns.get( "ADMINISTRADOR" ).toUpperCase().equals( "SIM" ) ) {
                 usuario.setAdministrador( "true" );
-            }
-            else
+            } else
                 usuario.setAdministrador( "false" );
         }
     }
 
-    @Quando("envio os dados para a api de cadastro")
+    @Quando( "envio os dados para a api de cadastro" )
     public void envio_os_dados_para_a_api_de_cadastro() {
         cadastrar.cadastrarUsuario( usuario );
     }
-
-
 }
