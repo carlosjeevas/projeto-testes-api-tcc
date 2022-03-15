@@ -10,8 +10,9 @@ glue= {"steps"},
 plugin = {	"pretty",
 			"html:results/html/cucumber.html",
 			"json:target/cucumber.json"},
-tags = "",
-monochrome = true
+tags = "@cadastrar_usuario",
+monochrome = true,
+stepNotifications = true
 )
 public class CodeRunner {
 
