@@ -10,9 +10,9 @@ import io.cucumber.junit.Cucumber;
         plugin = { "pretty",
                 "html:results/html/cucumber.html",
                 "json:target/cucumber.json" },
-        tags = "@all",
-        dryRun = false,
-        monochrome = true
+        tags = "@cadastrar_usuario",
+        monochrome = true,
+        stepNotifications = true
 )
 public class CodeRunner {
 

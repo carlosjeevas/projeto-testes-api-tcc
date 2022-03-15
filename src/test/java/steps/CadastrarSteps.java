@@ -35,4 +35,15 @@ public class CadastrarSteps {
     public void envio_os_dados_para_a_api_de_cadastro() {
         cadastrar.cadastrarUsuario( usuario );
     }
+    
+    @Quando( "envio os dados em branco para a api de cadastro" )
+    public void envioOsDadosEmBrancoParaAApiDeCadastro() {
+    	usuario.setNome("");
+    	usuario.setEmail("");
+    	usuario.setPassword("");
+    	usuario.setAdministrador("");
+        cadastrar.cadastrarUsuario( usuario );
+        
+    
+    }
 }

@@ -1,10 +1,15 @@
 package steps;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.Assert;
+
 import bean.ServiceBean;
-import io.cucumber.java.pt.Dado;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Então;
 import io.restassured.response.ResponseBodyExtractionOptions;
-import org.junit.Assert;
 
 public class CommonsSteps {
 
@@ -13,11 +18,18 @@ public class CommonsSteps {
         Assert.assertEquals( "Status HTTP diferente do esperado", Integer.parseInt( retorno ), ServiceBean.getResponse().getStatusCode() );
     }
 
-    @Então( "valido a mensagem retornada {string}" )
-    public void validoMensagemRetornada( String mensagem ) {
+    @Então( "valido a mensagem retornada" )
+    public void validoMensagemRetornada( DataTable msg ) {
         ResponseBodyExtractionOptions responseBody = ServiceBean.getResponse();
-
-        System.out.println(responseBody.asString());
-        Assert.assertEquals( "Mensagem diferente da esperada", mensagem, responseBody.jsonPath().getString( "message" ) );
+        
+        Map<String, String> test = responseBody.jsonPath().getMap("$");
+        
+        test.entrySet().stream().filter(e -> e.getValue().equals("nome não pode ficar em branco")).findFirst().map(Map.Entry::getKey).orElse(null);
+        
+        
+        List<String> rows = msg.asList( String.class);
+        for(String linhas : rows) {	
+        	Assert.assertEquals( "Mensagem diferente da esperada", linhas, responseBody.jsonPath().getString(test.entrySet().stream().filter(e -> e.getValue().equals(linhas)).findFirst().map(Map.Entry::getKey).orElse(null)));
     }
+}
 }
