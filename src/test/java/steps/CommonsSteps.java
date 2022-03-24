@@ -1,6 +1,5 @@
 package steps;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,12 +19,10 @@ public class CommonsSteps {
 
     @Então( "valido a mensagem retornada" )
     public void validoMensagemRetornada( DataTable msg ) {
+    	
         ResponseBodyExtractionOptions responseBody = ServiceBean.getResponse();
         
         Map<String, String> test = responseBody.jsonPath().getMap("$");
-        
-        test.entrySet().stream().filter(e -> e.getValue().equals("nome não pode ficar em branco")).findFirst().map(Map.Entry::getKey).orElse(null);
-        
         
         List<String> rows = msg.asList( String.class);
         for(String linhas : rows) {	

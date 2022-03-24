@@ -4,7 +4,7 @@ Funcionalidade: Cadastrar usuário
 
   Cenario: Cadastrar usuário administrador com sucesso
     Dado que quero cadastrar o usuario
-      | NOME   | EMAIL             | SENHA     | ADMINISTRADOR |
+      | NOME  | EMAIL            | SENHA     | ADMINISTRADOR |
       | Calbe | cablo@sem.com.br | minoxidil | Sim           |
     Quando envio os dados para a api de cadastro
     Então valido a mensagem retornada
@@ -14,7 +14,7 @@ Funcionalidade: Cadastrar usuário
   @teste
   Cenario: Cadastrar usuário comum com sucesso
     Dado que quero cadastrar o usuario
-      | NOME   | EMAIL             | SENHA     | ADMINISTRADOR |
+      | NOME  | EMAIL            | SENHA     | ADMINISTRADOR |
       | Calbe | cablo@sem.com.br | minoxidil | Não           |
     Quando envio os dados para a api de cadastro
     Então valido a mensagem retornada
