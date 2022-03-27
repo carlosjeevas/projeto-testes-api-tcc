@@ -26,7 +26,7 @@ public class CommonsSteps {
         
         List<String> rows = msg.asList( String.class);
         for(String linhas : rows) {	
-        	Assert.assertEquals( "Mensagem diferente da esperada", linhas, responseBody.jsonPath().getString(test.entrySet().stream().filter(e -> e.getValue().equals(linhas)).findFirst().map(Map.Entry::getKey).orElse(null)));
+        	Assert.assertEquals( "Mensagem diferente da esperada", linhas, responseBody.jsonPath().getString(test.entrySet().stream().filter(e -> e.getValue().equals(linhas)).findFirst().map(Map.Entry::getKey).orElse("Diferente")));
     }
 }
 }

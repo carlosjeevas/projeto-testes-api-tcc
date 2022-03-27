@@ -11,7 +11,7 @@ import io.cucumber.junit.Cucumber;
                 "html:results/html/cucumber.html",
                 "json:target/cucumber-report/cucumber.json",
                 "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
-        tags = "@cadastrar_usuario",
+        tags = "@editar_usuario",
         monochrome = true,
         stepNotifications = true
 )

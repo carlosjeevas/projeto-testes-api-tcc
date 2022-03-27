@@ -1,6 +1,6 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/usuario/cadastrar.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/usuario/editar.feature");
 formatter.feature({
-  "name": "Cadastrar usuário",
+  "name": "Editar usuário",
   "description": "",
   "keyword": "Funcionalidade",
   "tags": [
@@ -8,12 +8,17 @@ formatter.feature({
       "name": "@all"
     },
     {
-      "name": "@cadastrar_usuario"
+      "name": "@editar_usuario"
     }
   ]
 });
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Contexto"
+});
 formatter.scenario({
-  "name": "Cadastrar usuário administrador com sucesso",
+  "name": "Editar usuário com dados válidos",
   "description": "",
   "keyword": "Cenario",
   "tags": [
@@ -21,47 +26,47 @@ formatter.scenario({
       "name": "@all"
     },
     {
-      "name": "@cadastrar_usuario"
+      "name": "@editar_usuario"
     }
   ]
 });
 formatter.step({
-  "name": "que quero cadastrar o usuario",
+  "name": "que realizo a busca de usuario via api",
+  "keyword": "Dado "
+});
+formatter.match({
+  "location": "steps.BuscarSteps.que_realizo_a_busca_de_usuario_via_api()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "identifico o id através do nome e do email",
   "rows": [
     {},
     {}
   ],
-  "keyword": "Dado "
+  "keyword": "E "
 });
 formatter.match({
-  "location": "steps.CadastrarSteps.queroCadastrarOUsuario(io.cucumber.datatable.DataTable)"
+  "location": "steps.BuscarSteps.identificoOIdAtravesDoNomeEDoEmail(io.cucumber.datatable.DataTable)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "envio os dados para a api de cadastro",
+  "name": "envio os dados para edicao",
+  "rows": [
+    {},
+    {}
+  ],
   "keyword": "Quando "
 });
 formatter.match({
-  "location": "steps.CadastrarSteps.envio_os_dados_para_a_api_de_cadastro()"
+  "location": "steps.EditarSteps.EnvioOsDadosParaEdicao(io.cucumber.datatable.DataTable)"
 });
 formatter.result({
   "status": "passed"
-});
-formatter.step({
-  "name": "valido a mensagem retornada",
-  "rows": [
-    {}
-  ],
-  "keyword": "Então "
-});
-formatter.match({
-  "location": "steps.CommonsSteps.validoMensagemRetornada(io.cucumber.datatable.DataTable)"
-});
-formatter.result({
-  "error_message": "java.lang.IllegalArgumentException: path cannot be null\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)\r\n\tat io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)\r\n\tat io.restassured.path.json.JsonPath.createJsonAssertion(JsonPath.java:1014)\r\n\tat io.restassured.path.json.JsonPath.get(JsonPath.java:201)\r\n\tat io.restassured.path.json.JsonPath.getString(JsonPath.java:352)\r\n\tat steps.CommonsSteps.validoMensagemRetornada(CommonsSteps.java:29)\r\n\tat ✽.valido a mensagem retornada(file:///C:/Users/igorc/Documents/TCC/projeto-testes-api-tcc/src/test/resources/features/usuario/cadastrar.feature:10)\r\n",
-  "status": "failed"
 });
 formatter.step({
   "name": "valido o retorno da api com \"201\"",
@@ -71,110 +76,10 @@ formatter.match({
   "location": "steps.CommonsSteps.validoRetorndoDaApi(java.lang.String)"
 });
 formatter.result({
-  "status": "skipped"
-});
-formatter.scenario({
-  "name": "Cadastrar usuário comum com sucesso",
-  "description": "",
-  "keyword": "Cenario",
-  "tags": [
-    {
-      "name": "@all"
-    },
-    {
-      "name": "@cadastrar_usuario"
-    },
-    {
-      "name": "@teste"
-    }
-  ]
-});
-formatter.step({
-  "name": "que quero cadastrar o usuario",
-  "rows": [
-    {},
-    {}
-  ],
-  "keyword": "Dado "
-});
-formatter.match({
-  "location": "steps.CadastrarSteps.queroCadastrarOUsuario(io.cucumber.datatable.DataTable)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "envio os dados para a api de cadastro",
-  "keyword": "Quando "
-});
-formatter.match({
-  "location": "steps.CadastrarSteps.envio_os_dados_para_a_api_de_cadastro()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "valido a mensagem retornada",
-  "rows": [
-    {}
-  ],
-  "keyword": "Então "
-});
-formatter.match({
-  "location": "steps.CommonsSteps.validoMensagemRetornada(io.cucumber.datatable.DataTable)"
-});
-formatter.result({
-  "error_message": "java.lang.IllegalArgumentException: path cannot be null\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:72)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)\r\n\tat io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)\r\n\tat io.restassured.path.json.JsonPath.createJsonAssertion(JsonPath.java:1014)\r\n\tat io.restassured.path.json.JsonPath.get(JsonPath.java:201)\r\n\tat io.restassured.path.json.JsonPath.getString(JsonPath.java:352)\r\n\tat steps.CommonsSteps.validoMensagemRetornada(CommonsSteps.java:29)\r\n\tat ✽.valido a mensagem retornada(file:///C:/Users/igorc/Documents/TCC/projeto-testes-api-tcc/src/test/resources/features/usuario/cadastrar.feature:20)\r\n",
+  "error_message": "java.lang.AssertionError: Status HTTP diferente do esperado expected:\u003c201\u003e but was:\u003c400\u003e\r\n\tat org.junit.Assert.fail(Assert.java:89)\r\n\tat org.junit.Assert.failNotEquals(Assert.java:835)\r\n\tat org.junit.Assert.assertEquals(Assert.java:647)\r\n\tat steps.CommonsSteps.validoRetorndoDaApi(CommonsSteps.java:17)\r\n\tat ✽.valido o retorno da api com \"201\"(file:///C:/Users/igorc/Documents/TCC/projeto-testes-api-tcc/src/test/resources/features/usuario/editar.feature:15)\r\n",
   "status": "failed"
 });
 formatter.step({
-  "name": "valido o retorno da api com \"201\"",
-  "keyword": "E "
-});
-formatter.match({
-  "location": "steps.CommonsSteps.validoRetorndoDaApi(java.lang.String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.scenario({
-  "name": "Tentar cadastrar usuário com dados inválidos",
-  "description": "",
-  "keyword": "Cenario",
-  "tags": [
-    {
-      "name": "@all"
-    },
-    {
-      "name": "@cadastrar_usuario"
-    }
-  ]
-});
-formatter.step({
-  "name": "que quero cadastrar o usuario",
-  "rows": [
-    {},
-    {}
-  ],
-  "keyword": "Dado "
-});
-formatter.match({
-  "location": "steps.CadastrarSteps.queroCadastrarOUsuario(io.cucumber.datatable.DataTable)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "envio os dados para a api de cadastro",
-  "keyword": "Quando "
-});
-formatter.match({
-  "location": "steps.CadastrarSteps.envio_os_dados_para_a_api_de_cadastro()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
   "name": "valido a mensagem retornada",
   "rows": [
     {}
@@ -183,6 +88,62 @@ formatter.step({
 });
 formatter.match({
   "location": "steps.CommonsSteps.validoMensagemRetornada(io.cucumber.datatable.DataTable)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Contexto"
+});
+formatter.scenario({
+  "name": "Tentar editar usuário com dados inválidos",
+  "description": "",
+  "keyword": "Cenario",
+  "tags": [
+    {
+      "name": "@all"
+    },
+    {
+      "name": "@editar_usuario"
+    }
+  ]
+});
+formatter.step({
+  "name": "que realizo a busca de usuario via api",
+  "keyword": "Dado "
+});
+formatter.match({
+  "location": "steps.BuscarSteps.que_realizo_a_busca_de_usuario_via_api()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "identifico o id através do nome e do email",
+  "rows": [
+    {},
+    {}
+  ],
+  "keyword": "E "
+});
+formatter.match({
+  "location": "steps.BuscarSteps.identificoOIdAtravesDoNomeEDoEmail(io.cucumber.datatable.DataTable)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "envio os dados para edicao",
+  "rows": [
+    {},
+    {}
+  ],
+  "keyword": "Quando "
+});
+formatter.match({
+  "location": "steps.EditarSteps.EnvioOsDadosParaEdicao(io.cucumber.datatable.DataTable)"
 });
 formatter.result({
   "status": "passed"
@@ -197,38 +158,9 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "Tentar cadastrar usuário com dados em branco",
-  "description": "",
-  "keyword": "Cenario",
-  "tags": [
-    {
-      "name": "@all"
-    },
-    {
-      "name": "@cadastrar_usuario"
-    },
-    {
-      "name": "@opa"
-    }
-  ]
-});
-formatter.step({
-  "name": "envio os dados em branco para a api de cadastro",
-  "keyword": "Quando "
-});
-formatter.match({
-  "location": "steps.CadastrarSteps.envioOsDadosEmBrancoParaAApiDeCadastro()"
-});
-formatter.result({
-  "status": "passed"
-});
 formatter.step({
   "name": "valido a mensagem retornada",
   "rows": [
-    {},
-    {},
-    {},
     {}
   ],
   "keyword": "Então "
@@ -239,12 +171,81 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Contexto"
+});
+formatter.scenario({
+  "name": "Tentar editar usuário com dados que não existe para cadastrar o mesmo",
+  "description": "",
+  "keyword": "Cenario",
+  "tags": [
+    {
+      "name": "@all"
+    },
+    {
+      "name": "@editar_usuario"
+    }
+  ]
+});
 formatter.step({
-  "name": "valido o retorno da api com \"400\"",
+  "name": "que realizo a busca de usuario via api",
+  "keyword": "Dado "
+});
+formatter.match({
+  "location": "steps.BuscarSteps.que_realizo_a_busca_de_usuario_via_api()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "identifico o id através do nome e do email",
+  "rows": [
+    {},
+    {}
+  ],
+  "keyword": "E "
+});
+formatter.match({
+  "location": "steps.BuscarSteps.identificoOIdAtravesDoNomeEDoEmail(io.cucumber.datatable.DataTable)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "envio os dados para edicao",
+  "rows": [
+    {},
+    {}
+  ],
+  "keyword": "Quando "
+});
+formatter.match({
+  "location": "steps.EditarSteps.EnvioOsDadosParaEdicao(io.cucumber.datatable.DataTable)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido o retorno da api com \"201\"",
   "keyword": "E "
 });
 formatter.match({
   "location": "steps.CommonsSteps.validoRetorndoDaApi(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "valido a mensagem retornada",
+  "rows": [
+    {}
+  ],
+  "keyword": "Então "
+});
+formatter.match({
+  "location": "steps.CommonsSteps.validoMensagemRetornada(io.cucumber.datatable.DataTable)"
 });
 formatter.result({
   "status": "passed"

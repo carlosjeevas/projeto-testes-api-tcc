@@ -4,8 +4,8 @@ Funcionalidade: Cadastrar usuário
 
   Cenario: Cadastrar usuário administrador com sucesso
     Dado que quero cadastrar o usuario
-      | NOME  | EMAIL            | SENHA     | ADMINISTRADOR |
-      | Calbe | cablo@sem.com.br | minoxidil | Sim           |
+      | NOME  | EMAIL       | SENHA    | ADMINISTRADOR |
+      | Calbe | cabl@com.br | testando | Sim           |
     Quando envio os dados para a api de cadastro
     Então valido a mensagem retornada
       | Cadastro realizado com sucesso |
@@ -14,8 +14,8 @@ Funcionalidade: Cadastrar usuário
   @teste
   Cenario: Cadastrar usuário comum com sucesso
     Dado que quero cadastrar o usuario
-      | NOME  | EMAIL            | SENHA     | ADMINISTRADOR |
-      | Calbe | cablo@sem.com.br | minoxidil | Não           |
+      | NOME | EMAIL       | SENHA    | ADMINISTRADOR |
+      | Cabl | cabl@com.br | testando | Não           |
     Quando envio os dados para a api de cadastro
     Então valido a mensagem retornada
       | Cadastro realizado com sucesso |
