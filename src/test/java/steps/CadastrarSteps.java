@@ -7,7 +7,7 @@ import dto.UsuarioDTO;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
-import service.CadastrarService;
+import service.usuario.CadastrarService;
 
 public class CadastrarSteps {
 

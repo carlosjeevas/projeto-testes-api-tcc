@@ -6,7 +6,7 @@ import java.util.Map;
 import dto.UsuarioDTO;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.E;
-import service.EditarService;
+import service.usuario.EditarService;
 
 public class EditarSteps {
 

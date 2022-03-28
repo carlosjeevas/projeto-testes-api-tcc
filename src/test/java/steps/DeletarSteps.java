@@ -2,7 +2,7 @@ package steps;
 
 import bean.ServiceBean;
 import io.cucumber.java.pt.Quando;
-import service.DeletarService;
+import service.usuario.DeletarService;
 
 public class DeletarSteps {
 	

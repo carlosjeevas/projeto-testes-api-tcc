@@ -7,7 +7,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
-import service.BuscarService;
+import service.usuario.BuscarService;
 
 public class BuscarSteps {
 	
