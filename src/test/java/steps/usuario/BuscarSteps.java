@@ -1,4 +1,4 @@
-package steps;
+package steps.usuario;
 
 import java.util.List;
 import java.util.Map;
@@ -7,11 +7,11 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
-import service.usuario.BuscarService;
+import service.usuario.BuscarUsuarioService;
 
 public class BuscarSteps {
 	
-	BuscarService buscar = new BuscarService();
+	BuscarUsuarioService buscar = new BuscarUsuarioService();
 
     @Dado( "que realizo a busca de usuario via api" )
     public void que_realizo_a_busca_de_usuario_via_api() {

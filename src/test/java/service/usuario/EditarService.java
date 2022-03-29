@@ -8,7 +8,6 @@ import io.restassured.builder.RequestSpecBuilder;
 import lombok.extern.slf4j.Slf4j;
 import utils.PropertyReader;
 
-
 @Slf4j
 public class EditarService {
 

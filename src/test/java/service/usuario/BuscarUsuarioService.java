@@ -2,18 +2,17 @@ package service.usuario;
 
 import static io.restassured.RestAssured.given;
 
+import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 
 import bean.ServiceBean;
-import groovy.util.logging.Slf4j;
 import io.restassured.builder.RequestSpecBuilder;
 import utils.PropertyReader;
 
 @Slf4j
-public class BuscarService {
+public class BuscarUsuarioService {
 
     private final static String URL = PropertyReader.getProperty("urlUsuarios");
-
 
     public void buscarUsuarios() {
 
@@ -26,12 +25,11 @@ public class BuscarService {
   
         ServiceBean.setResponse(
         		given()
-                .log()
-                .all()
                 .spec( request.build() )
                 .get( URL ));
+
+		ServiceBean.getResponse().then().log().all();
     }
-    
     
     public void pegarIdAtravesDoNomeEDoEmail(String nome, String email) {
     	
@@ -47,12 +45,6 @@ public class BuscarService {
     		if(nomeUsuario.equals(nome) && emailUsuario.equals(email)) {
     			ServiceBean.setIdUsuario(json.getJSONArray("usuarios").getJSONObject(i).getString("_id"));
     		}
-    		
-    		
     	}
-    	
-    	
-    	
     }
-
 }

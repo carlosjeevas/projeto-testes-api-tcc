@@ -17,5 +17,4 @@ public class ServiceBean {
 	@Getter
 	@Setter
 	private static String token;
-    
 }
