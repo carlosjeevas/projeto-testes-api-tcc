@@ -2,11 +2,11 @@ package steps.usuario;
 
 import bean.ServiceBean;
 import io.cucumber.java.pt.Quando;
-import service.usuario.DeletarService;
+import service.usuario.DeletarUsuarioService;
 
-public class DeletarSteps {
+public class DeletarUsuarioSteps {
 	
-	DeletarService deletar = new DeletarService();
+	DeletarUsuarioService deletar = new DeletarUsuarioService();
 	
 	@Quando("efetuar a exclusão do usuário")
 	public void efetuarAExclusaoDoUsuario() {

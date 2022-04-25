@@ -19,11 +19,10 @@ public class BuscarSteps {
     public void que_realizo_a_busca_de_produto_via_api() {
     	buscarProduto.buscarProduto();
     }
-    
 
     @Dado( "que realizo a busca de produto pelo numero de identificacao {string}" )
-    public void que_realizo_a_busca_de_usuario_pelo_numero_de_identificacao( String id ) {
-
+    public void que_realizo_a_busca_de_produto_pelo_numero_de_identificacao( String id ) {
+        buscarProduto.buscarProdutoPorId(id);
     }
 
     @Então( "valido a lista de produtos retornada" )
@@ -31,18 +30,13 @@ public class BuscarSteps {
         Assert.assertNotNull("Nenhum produto cadastrado", ServiceBean.getResponse().jsonPath().getString("produtos"));
     }
 
+    @Então( "valido que retornou o produto" )
+    public void valido_que_retornou_o_produto() {
+        Assert.assertNotNull("Nenhum produto encontrado", ServiceBean.getResponse().getBody().asString());
+    }
+
     @Então( "valido que o produto foi retornado com sucesso" )
     public void valido_que_o_produto_foi_retornado_com_sucesso() {
 
-    }
-    
-    @E("identifico o id do produto através do nome e do email")
-    public void identificoOIdDoProdutoAtravesDoNomeEDoEmail(DataTable dados) {
-    	
-    	List< Map< String, String > > rows = dados.asMaps( String.class, String.class );
-    	
-    	for( Map< String, String > columns : rows ) {
-    		buscarProduto.pegarIdAtravesDoNomeEDoEmail(columns.get( "NOME" ), columns.get( "EMAIL" ));
-    	}
     }
 }

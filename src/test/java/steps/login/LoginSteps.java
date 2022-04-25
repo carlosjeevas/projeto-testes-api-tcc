@@ -1,4 +1,4 @@
-package steps.usuario;
+package steps.login;
 
 import static org.junit.Assert.assertTrue;
 
@@ -11,7 +11,7 @@ import bean.ServiceBean;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
-import service.usuario.LoginService;
+import service.login.LoginService;
 
 public class LoginSteps {
 

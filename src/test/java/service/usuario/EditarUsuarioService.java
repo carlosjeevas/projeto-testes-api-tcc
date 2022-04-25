@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import utils.PropertyReader;
 
 @Slf4j
-public class EditarService {
+public class EditarUsuarioService {
 
 	private final static String URL = PropertyReader.getProperty("urlUsuarios");
 

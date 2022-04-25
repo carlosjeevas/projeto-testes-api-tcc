@@ -21,13 +21,12 @@ public class BuscarUsuarioService {
         request.setAccept( "*/*" );
         request.setContentType( "application/json" );
 
-      //  log.info( "Retorno da API Buscar" );
-  
-        ServiceBean.setResponse(
+		ServiceBean.setResponse(
         		given()
                 .spec( request.build() )
                 .get( URL ));
 
+		log.info( "Retorno da API Buscar Usuário" );
 		ServiceBean.getResponse().then().log().all();
     }
     

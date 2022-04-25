@@ -8,6 +8,6 @@ Funcionalidade: Buscar produtos
     E valido o retorno da api com "200"
 
   Cenario: Buscar produto por número de identificação
-    Dado que realizo a busca de produto pelo numero de identificacao "123"
-    Então valido que o usuario foi retornado com sucesso
+    Dado que realizo a busca de produto pelo numero de identificacao "BeeJh5lz3k6kSIzA"
+    Então valido que retornou o produto
     E valido o retorno da api com "200"

@@ -7,11 +7,11 @@ import dto.UsuarioDTO;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
-import service.usuario.CadastrarService;
+import service.usuario.CadastrarUsuarioService;
 
-public class CadastrarSteps {
+public class CadastrarUsuarioSteps {
 
-    CadastrarService cadastrar = new CadastrarService();
+    CadastrarUsuarioService cadastrar = new CadastrarUsuarioService();
     UsuarioDTO usuario = new UsuarioDTO();
 
     @Dado( "que quero cadastrar o usuario" )

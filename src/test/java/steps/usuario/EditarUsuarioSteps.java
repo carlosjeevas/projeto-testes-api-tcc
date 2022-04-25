@@ -6,11 +6,11 @@ import java.util.Map;
 import dto.UsuarioDTO;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.E;
-import service.usuario.EditarService;
+import service.usuario.EditarUsuarioService;
 
-public class EditarSteps {
+public class EditarUsuarioSteps {
 
-	EditarService editar = new EditarService();
+	EditarUsuarioService editar = new EditarUsuarioService();
 	UsuarioDTO usuario = new UsuarioDTO();
 
 	@E("envio os dados para edicao")

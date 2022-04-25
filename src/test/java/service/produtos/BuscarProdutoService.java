@@ -19,7 +19,6 @@ public class BuscarProdutoService {
         request.setAccept( "*/*" );
         request.setContentType( "application/json" );
 
-
         ServiceBean.setResponse(
                 given()
                         .log()
@@ -31,20 +30,21 @@ public class BuscarProdutoService {
         ServiceBean.getResponse().then().log().all();
     }
 
-    public void pegarIdAtravesDoNomeEDoEmail(String nome, String email) {
+    public void buscarProdutoPorId(String id) {
 
-        JSONObject json = new JSONObject(ServiceBean.getResponse().asString().toString());
+        RequestSpecBuilder request = new RequestSpecBuilder();
 
-        Integer quantidadeListaDeUsuarios = json.getJSONArray("usuarios").length();
+        request.setAccept( "*/*" );
+        request.setContentType( "application/json" );
 
-        for(int i = 0; i < quantidadeListaDeUsuarios; i++) {
+        ServiceBean.setResponse(
+                given()
+                        .log()
+                        .all()
+                        .spec( request.build() )
+                        .get( String.format("%s/%s", URL, id)));
 
-            String nomeUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("nome");
-            String emailUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("email");
-
-            if(nomeUsuario.equals(nome) && emailUsuario.equals(email)) {
-                ServiceBean.setIdUsuario(json.getJSONArray("usuarios").getJSONObject(i).getString("_id"));
-            }
-        }
+        log.info( "Retorno da API de Produtos" );
+        ServiceBean.getResponse().then().log().all();
     }
 }
