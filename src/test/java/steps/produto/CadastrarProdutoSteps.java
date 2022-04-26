@@ -3,13 +3,14 @@ package steps.produto;
 import dto.ProdutoDTO;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Quando;
 import service.produtos.CadastrarProdutoService;
 
 import java.util.List;
 import java.util.Map;
 
-public class CadastrarSteps {
+public class CadastrarProdutoSteps {
 
     CadastrarProdutoService cadastrar = new CadastrarProdutoService();
     ProdutoDTO produtoDTO = new ProdutoDTO();
@@ -32,12 +33,8 @@ public class CadastrarSteps {
         cadastrar.cadastrarProduto( produtoDTO );
     }
 
-//    @Quando( "envio os dados em branco para a api de cadastro" )
-//    public void envioOsDadosEmBrancoParaAApiDeCadastro() {
-//    	usuario.setNome("");
-//    	usuario.setEmail("");
-//    	usuario.setPassword("");
-//    	usuario.setAdministrador("");
-//        cadastrar.cadastrarUsuario( usuario );
-//    }
+    @E( "guardo o id do produto cadastrado" )
+    public void guardo_id_produto() {
+        cadastrar.guardarIdProduto();
+    }
 }

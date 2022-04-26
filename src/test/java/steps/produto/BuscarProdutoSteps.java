@@ -1,17 +1,12 @@
 package steps.produto;
 
 import bean.ServiceBean;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
 import org.junit.Assert;
 import service.produtos.BuscarProdutoService;
 
-import java.util.List;
-import java.util.Map;
-
-public class BuscarSteps {
+public class BuscarProdutoSteps {
 	
 	BuscarProdutoService buscarProduto = new BuscarProdutoService();
 

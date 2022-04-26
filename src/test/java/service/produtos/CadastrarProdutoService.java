@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 
 @Slf4j
 public class CadastrarProdutoService {
-    private final static String URL = PropertyReader.getProperty("urlProdutos");
+    private final static String URL = PropertyReader.getProperty( "urlProdutos" );
 
     public void cadastrarProduto( ProdutoDTO produtoDTO ) {
 
@@ -28,9 +28,13 @@ public class CadastrarProdutoService {
                         .all()
                         .spec( request.build() )
                         .body( produtoDTO )
-                        .post( URL ));
+                        .post( URL ) );
 
         log.info( "Retorno da API Cadastrar Produto" );
         ServiceBean.getResponse().then().log().all();
+    }
+
+    public void guardarIdProduto() {
+        ServiceBean.setIdProduto( ServiceBean.getResponse().jsonPath().getString( "_id" ) );
     }
 }

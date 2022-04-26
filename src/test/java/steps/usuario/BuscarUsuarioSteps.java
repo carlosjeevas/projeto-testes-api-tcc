@@ -41,9 +41,6 @@ public class BuscarUsuarioSteps {
 
         for( Map< String, String > columns : rows ) {
             buscar.pegarIdAtravesDoNomeEDoEmail( columns.get( "NOME" ), columns.get( "EMAIL" ) );
-
         }
-
     }
-
 }

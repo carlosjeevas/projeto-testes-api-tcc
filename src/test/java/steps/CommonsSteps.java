@@ -19,14 +19,14 @@ public class CommonsSteps {
 
     @Então( "valido a mensagem retornada" )
     public void validoMensagemRetornada( DataTable msg ) {
-    	
+
         ResponseBodyExtractionOptions responseBody = ServiceBean.getResponse();
-        
-        Map<String, String> test = responseBody.jsonPath().getMap("$");
-        
-        List<String> rows = msg.asList( String.class);
-        for(String linhas : rows) {	
-        	Assert.assertEquals( "Mensagem diferente da esperada", linhas, responseBody.jsonPath().getString(test.entrySet().stream().filter(e -> e.getValue().equals(linhas)).findFirst().map(Map.Entry::getKey).orElse("Diferente")));
+
+        Map< String, String > test = responseBody.jsonPath().getMap( "$" );
+
+        List< String > rows = msg.asList( String.class );
+        for( String linhas : rows ) {
+            Assert.assertEquals( "Mensagem diferente da esperada", linhas, responseBody.jsonPath().getString( test.entrySet().stream().filter( e -> e.getValue().equals( linhas ) ).findFirst().map( Map.Entry :: getKey ).orElse( "Diferente" ) ) );
+        }
     }
-}
 }

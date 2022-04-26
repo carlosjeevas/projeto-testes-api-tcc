@@ -9,12 +9,16 @@ public class ServiceBean {
 	@Getter
 	@Setter
 	private static Response response;
-	
-	@Getter
-	@Setter
-    private static String idUsuario;
-	
+
 	@Getter
 	@Setter
 	private static String token;
+
+	@Getter
+	@Setter
+	private static String idUsuario;
+
+	@Getter
+	@Setter
+	private static String idProduto;
 }
