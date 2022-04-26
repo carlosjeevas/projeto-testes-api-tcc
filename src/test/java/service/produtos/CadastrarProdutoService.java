@@ -20,7 +20,7 @@ public class CadastrarProdutoService {
 
         request.setAccept( "*/*" );
         request.setContentType( "application/json" );
-        request.addHeader( HttpHeaders.AUTHORIZATION, String.format( "Bearer %s", ServiceBean.getToken() ) );
+        request.addHeader( HttpHeaders.AUTHORIZATION, String.format( ServiceBean.getToken() ) );
 
         ServiceBean.setResponse(
                 given()

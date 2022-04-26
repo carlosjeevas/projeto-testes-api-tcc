@@ -22,7 +22,7 @@ public class LoginService {
         request.setAccept( "*/*" );
         request.setContentType( "application/json" );
 
-        log.info( "Retorno da API Login" );
+        log.info( "Request para API de Login" );
 
         ServiceBean.setResponse(
                 given()
@@ -34,6 +34,9 @@ public class LoginService {
                                 + "  \"password\":\"" + senha + "\"\n"
                                 + "}" )
                         .post( URL ) );
+
+        log.info( "Retorno da API de Login" );
+        ServiceBean.getResponse().then().log().all();
     }
 
     public void validarToken() {

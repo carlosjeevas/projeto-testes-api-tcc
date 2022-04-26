@@ -25,6 +25,8 @@ public class LoginSteps {
 		for (Map<String, String> columns : rows) {
 			login.loginUsuario(columns.get("EMAIL"), columns.get("SENHA"));
 		}
+
+		ServiceBean.setToken( ServiceBean.getResponse().jsonPath().getString("authorization") );
 	}
 	
 	@Entao("valido que foi retornado um token de acesso")
