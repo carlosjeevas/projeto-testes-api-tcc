@@ -38,10 +38,10 @@ public class CadastrarUsuarioSteps {
 
     @Quando( "envio os dados em branco para a api de cadastro" )
     public void envioOsDadosEmBrancoParaAApiDeCadastro() {
-    	usuario.setNome("");
-    	usuario.setEmail("");
-    	usuario.setPassword("");
-    	usuario.setAdministrador("");
+        usuario.setNome( "" );
+        usuario.setEmail( "" );
+        usuario.setPassword( "" );
+        usuario.setAdministrador( "" );
         cadastrar.cadastrarUsuario( usuario );
     }
 }
