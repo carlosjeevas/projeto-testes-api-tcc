@@ -4,7 +4,7 @@ Funcionalidade: Cadastrar usuário
 
   Cenario: Cadastrar usuário administrador com sucesso
     Dado que quero cadastrar o usuario
-      | NOME  | EMAIL       | SENHA    | ADMINISTRADOR |
+      | NOME  | EMAIL         | SENHA    | ADMINISTRADOR |
       | Calbe | calebe@com.br | testando | Sim           |
     Quando envio os dados para a api de cadastro
     E valido o retorno da api com "201"
@@ -13,7 +13,7 @@ Funcionalidade: Cadastrar usuário
 
   Cenario: Cadastrar usuário comum com sucesso
     Dado que quero cadastrar o usuario
-      | NOME | EMAIL        | SENHA    | ADMINISTRADOR |
+      | NOME   | EMAIL         | SENHA    | ADMINISTRADOR |
       | Calebe | calebe@com.br | testando | Não           |
     Quando envio os dados para a api de cadastro
     E valido o retorno da api com "201"

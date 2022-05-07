@@ -6,7 +6,7 @@ Funcionalidade: Deletar usuário
     Dado que realizo a busca de usuario via api
     E identifico o id através do nome e do email
       | NOME | EMAIL        |
-      | Cabl | cable@com.br |
+      | igor | cable@com.br |
     Quando efetuar a exclusão do usuário
     E valido o retorno da api com "200"
     Então valido a mensagem retornada

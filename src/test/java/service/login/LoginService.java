@@ -15,7 +15,7 @@ public class LoginService {
 
     private final static String URL = PropertyReader.getProperty( "urlLogin" );
 
-    public void loginUsuario( String email, String senha ) {
+    public void verificarUsuario( String email, String senha ) {
 
         RequestSpecBuilder request = new RequestSpecBuilder();
 
