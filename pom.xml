@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cucumber.demo</groupId>
 	<artifactId>Code</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.5.0</version>
 
 
 	<properties>
@@ -77,6 +77,12 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>0.15</version>
 		</dependency>
 	</dependencies>
 

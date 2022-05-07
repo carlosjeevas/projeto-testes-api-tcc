@@ -11,24 +11,24 @@ import utils.PropertyReader;
 @Slf4j
 public class CadastrarUsuarioService {
 
-	private final static String URL = PropertyReader.getProperty("urlUsuarios");
+    private final static String URL = PropertyReader.getProperty( "urlUsuarios" );
 
-	public void cadastrarUsuario( UsuarioDTO usuario ) {
+    public void cadastrarUsuario( UsuarioDTO usuario ) {
 
-		RequestSpecBuilder request = new RequestSpecBuilder();
+        RequestSpecBuilder request = new RequestSpecBuilder();
 
-		request.setAccept( "*/*" );
-		request.setContentType( "application/json" );
+        request.setAccept( "*/*" );
+        request.setContentType( "application/json" );
 
-		ServiceBean.setResponse(
-				given()
-				.log()
-				.all()
-				.spec( request.build() )
-				.body( usuario )
-				.post( URL ));
+        ServiceBean.setResponse(
+                given()
+                        .log()
+                        .all()
+                        .spec( request.build() )
+                        .body( usuario )
+                        .post( URL ) );
 
-		log.info( "Retorno da API Cadastrar Usuário" );
-		ServiceBean.getResponse().then().log().all();
-	}
+        log.info( "Retorno da API Cadastrar Usuário" );
+        ServiceBean.getResponse().then().log().all();
+    }
 }

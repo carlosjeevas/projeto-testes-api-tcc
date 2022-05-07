@@ -7,10 +7,11 @@ import org.json.JSONObject;
 import utils.PropertyReader;
 
 import static io.restassured.RestAssured.given;
+
 @Slf4j
 public class BuscarProdutoService {
 
-    private final static String URL = PropertyReader.getProperty("urlProdutos");
+    private final static String URL = PropertyReader.getProperty( "urlProdutos" );
 
     public void buscarProduto() {
 
@@ -24,13 +25,13 @@ public class BuscarProdutoService {
                         .log()
                         .all()
                         .spec( request.build() )
-                        .get( URL ));
+                        .get( URL ) );
 
         log.info( "Retorno da API de Produtos" );
         ServiceBean.getResponse().then().log().all();
     }
 
-    public void buscarProdutoPorId(String id) {
+    public void buscarProdutoPorId( String id ) {
 
         RequestSpecBuilder request = new RequestSpecBuilder();
 
@@ -42,7 +43,7 @@ public class BuscarProdutoService {
                         .log()
                         .all()
                         .spec( request.build() )
-                        .get( String.format("%s/%s", URL, id)));
+                        .get( String.format( "%s/%s", URL, id ) ) );
 
         log.info( "Retorno da API de Produtos" );
         ServiceBean.getResponse().then().log().all();
