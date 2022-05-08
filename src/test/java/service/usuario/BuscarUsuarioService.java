@@ -14,52 +14,47 @@ import utils.PropertyReader;
 @Slf4j
 public class BuscarUsuarioService {
 
-	private final static String URL = PropertyReader.getProperty("urlUsuarios");
+    private final static String URL = PropertyReader.getProperty( "urlUsuarios" );
 
-	public void buscarUsuarios() {
+    public void buscarUsuarios() {
 
-		RequestSpecBuilder request = new RequestSpecBuilder();
+        RequestSpecBuilder request = new RequestSpecBuilder();
 
-		request.setAccept("*/*");
-		request.setContentType("application/json");
+        request.setAccept( "*/*" );
+        request.setContentType( "application/json" );
 
-		ServiceBean.setResponse(given().spec(request.build()).get(URL));
+        ServiceBean.setResponse( given().spec( request.build() ).get( URL ) );
 
-		log.info("Retorno da API Buscar Usuário");
-		ServiceBean.getResponse().then().log().all();
-	}
+        log.info( "Retorno da API Buscar Usuário" );
+        ServiceBean.getResponse().then().log().all();
+    }
 
-	public void pegarIdDeFormaAleatoria() {
+    public void pegarIdDeFormaAleatoria() {
 
-		Random numberRandom = new Random();
+        Random numberRandom = new Random();
+        JSONObject json = new JSONObject( ServiceBean.getResponse().asString().toString() );
 
-		JSONObject json = new JSONObject(ServiceBean.getResponse().asString().toString());
+        int quantidadeIndiceDeUsuarios = json.getJSONArray( "usuarios" ).length();
+        int indiceUsuario = numberRandom.nextInt( quantidadeIndiceDeUsuarios );
 
-		int quantidadeIndiceDeUsuarios = json.getJSONArray("usuarios").length();
+        String idUsuario = json.getJSONArray( "usuarios" ).getJSONObject( indiceUsuario ).getString( "_id" );
 
-		int indiceUsuario = numberRandom.nextInt(quantidadeIndiceDeUsuarios);
+        ServiceBean.setIdUsuario( idUsuario );
+    }
 
-		String idUsuario = json.getJSONArray("usuarios").getJSONObject(indiceUsuario).getString("_id");
+    public void pegarEmailESenhaDeFormaAleatoria() {
 
-		ServiceBean.setIdUsuario(idUsuario);
-	}
-	
-	public void pegarEmailESenhaDeFormaAleatoria() {
+        Random numberRandom = new Random();
+        JSONObject json = new JSONObject( ServiceBean.getResponse().asString().toString() );
 
-			Random numberRandom = new Random();
+        int quantidadeIndiceDeUsuarios = json.getJSONArray( "usuarios" ).length();
+        int indiceUsuario = numberRandom.nextInt( quantidadeIndiceDeUsuarios );
 
-			JSONObject json = new JSONObject(ServiceBean.getResponse().asString().toString());
+        String emailUsuario = json.getJSONArray( "usuarios" ).getJSONObject( indiceUsuario ).getString( "email" );
+        String senhaUsuario = json.getJSONArray( "usuarios" ).getJSONObject( indiceUsuario ).getString( "password" );
 
-			int quantidadeIndiceDeUsuarios = json.getJSONArray("usuarios").length();
-
-			int indiceUsuario = numberRandom.nextInt(quantidadeIndiceDeUsuarios);
-
-			String emailUsuario = json.getJSONArray("usuarios").getJSONObject(indiceUsuario).getString("email");
-			
-			String senhaUsuario = json.getJSONArray("usuarios").getJSONObject(indiceUsuario).getString("password");
-			
-			ServiceBean.setEmailUsuario(emailUsuario);
-			ServiceBean.setPasswordUsuario(senhaUsuario);
-		}
-	}
+        ServiceBean.setEmailUsuario( emailUsuario );
+        ServiceBean.setPasswordUsuario( senhaUsuario );
+    }
+}
 

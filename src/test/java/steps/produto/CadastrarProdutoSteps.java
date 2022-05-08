@@ -15,8 +15,8 @@ public class CadastrarProdutoSteps {
     CadastrarProdutoService cadastrar = new CadastrarProdutoService();
     ProdutoDTO produtoDTO = new ProdutoDTO();
 
-    @Dado( "que quero cadastrar o produto" )
-    public void quero_cadastrar_o_produto( DataTable dados ) {
+    @Dado( "cadastrar o produto com os dados" )
+    public void cadastrar_o_produto( DataTable dados ) {
 
         List< Map< String, String > > rows = dados.asMaps( String.class, String.class );
 
@@ -28,13 +28,13 @@ public class CadastrarProdutoSteps {
         }
     }
 
-    @Quando( "envio os dados para a api de cadastro de produto" )
-    public void envio_os_dados_para_a_api_de_cadastro() {
+    @Quando( "enviar os dados para a api de cadastro de produto" )
+    public void enviar_os_dados_para_a_api_de_cadastro() {
         cadastrar.cadastrarProduto( produtoDTO );
     }
 
-    @E( "guardo o id do produto cadastrado" )
-    public void guardo_id_produto() {
+    @E( "guardar o id do produto cadastrado" )
+    public void guardar_id_produto() {
         cadastrar.guardarIdProduto();
     }
 }

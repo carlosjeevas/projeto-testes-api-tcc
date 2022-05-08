@@ -9,10 +9,10 @@ Funcionalidade: Cadastrar produto
     Então validar que foi retornado um token de acesso
 
   Cenario: Cadastrar produto com sucesso
-    Dado que quero cadastrar o produto
+    Dado cadastrar o produto com os dados
       | NOME  | PRECO | DESCRICAO  | QUANTIDADE |
       | Mouse |    50 | É um mouse |          2 |
-    Quando envio os dados para a api de cadastro de produto
+    Quando enviar os dados para a api de cadastro de produto
     E validar o retorno da api com status code "201"
     Então validar a mensagem retornada
       | Cadastro realizado com sucesso |

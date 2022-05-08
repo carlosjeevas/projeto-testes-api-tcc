@@ -18,7 +18,7 @@ public class EditarProdutoSteps {
     ProdutoDTO produto = new ProdutoDTO();
 
     @Quando( "enviar os dados para edição" )
-    public void envio_dados_para_api_de_delecao( DataTable dados ) {
+    public void enviar_dados_para_api_de_delecao( DataTable dados ) {
 
         List< Map< String, String > > rows = dados.asMaps( String.class, String.class );
 
