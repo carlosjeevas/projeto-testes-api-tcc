@@ -11,6 +11,7 @@ import bean.ServiceBean;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
+import io.cucumber.java.pt.Quando;
 import service.login.LoginService;
 
 public class LoginSteps {
@@ -23,13 +24,20 @@ public class LoginSteps {
 		List<Map<String, String>> rows = dados.asMaps(String.class, String.class);
 
 		for (Map<String, String> columns : rows) {
-			login.loginUsuario(columns.get("EMAIL"), columns.get("SENHA"));
+			login.verificarUsuario(columns.get("EMAIL"), columns.get("SENHA"));
 		}
 
 		ServiceBean.setToken( ServiceBean.getResponse().jsonPath().getString("authorization") );
 	}
 	
-	@Entao("valido que foi retornado um token de acesso")
+	@Quando("realizar o login")
+	public void realizarOLogin() {
+		login.verificarUsuario(ServiceBean.getEmailUsuario(), ServiceBean.getPasswordUsuario());
+		
+		ServiceBean.setToken( ServiceBean.getResponse().jsonPath().getString("authorization") );
+	}
+	
+	@Entao("validar que foi retornado um token de acesso")
 		public void validoQueFoiRetornadoUmTokenDeAcesso() {
 			JSONObject json = new JSONObject(ServiceBean.getResponse().asString().toString());
 			

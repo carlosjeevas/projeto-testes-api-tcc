@@ -21,4 +21,13 @@ public class ServiceBean {
 	@Getter
 	@Setter
 	private static String idProduto;
+	
+	@Getter
+	@Setter
+	private static String passwordUsuario;
+	
+	@Getter
+	@Setter
+	private static String emailUsuario;
+	
 }

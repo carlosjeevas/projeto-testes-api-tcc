@@ -13,7 +13,7 @@ public class EditarUsuarioSteps {
     EditarUsuarioService editar = new EditarUsuarioService();
     UsuarioDTO usuario = new UsuarioDTO();
 
-    @E( "envio os dados para edicao" )
+    @E( "enviar os dados para edição do usuário" )
     public void EnvioOsDadosParaEdicao( DataTable dados ) {
 
         List< Map< String, String > > rows = dados.asMaps( String.class, String.class );

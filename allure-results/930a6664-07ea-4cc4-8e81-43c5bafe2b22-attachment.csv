@@ -1,0 +1,4 @@
+nome não pode ficar em branco
+email não pode ficar em branco
+password não pode ficar em branco
+administrador deve ser 'true' ou 'false'
