@@ -8,6 +8,6 @@ Funcionalidade: Buscar usuários
     E validar o retorno da api com status code "200"
 
   Cenario: Buscar usuário por número de identificação
-    Dado que realizo a busca de usuario pelo numero de identificacao "123"
-    Então valido que o usuario foi retornado com sucesso
+    Dado que realiza a busca de usuario pelo numero de identificacao "123"
+    Então validar que o usuario foi retornado com sucesso
     E validar o retorno da api com status code "200"

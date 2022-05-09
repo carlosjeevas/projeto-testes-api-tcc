@@ -3,8 +3,9 @@ package steps.usuario;
 import dto.UsuarioDTO;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
+import lombok.extern.slf4j.Slf4j;
 import service.usuario.BuscarUsuarioService;
-
+@Slf4j
 public class BuscarUsuarioSteps {
 
 	UsuarioDTO usuario = new UsuarioDTO();
@@ -21,8 +22,19 @@ public class BuscarUsuarioSteps {
             buscar.pegarIdDeFormaAleatoria();
     }
     
-    @E("pegar email e senha para login")
-    public void pegarEmailESenhaParaLogin() {
-    	buscar.pegarEmailESenhaDeFormaAleatoria();
+    @E("pegar email e senha para login de {string}")
+    public void pegarEmailESenhaParaLogin(String tipoUsuario) {
+    	
+    	if(tipoUsuario.equals("comum")) {
+    		tipoUsuario = "false";
+    	}
+    	else if(tipoUsuario.equals("administrador")) {
+    		tipoUsuario = "true";
+    	}
+    	else {
+    		log.info("Tipo Usuário incorreto");
+    	}
+    	
+    	buscar.pegarEmailESenhaDeUsuarioComumEAdministrador(tipoUsuario);
     }
 }

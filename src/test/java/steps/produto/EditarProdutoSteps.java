@@ -24,7 +24,7 @@ public class EditarProdutoSteps {
 
         for( Map< String, String > columns : rows ) {
             produto.setNome( columns.get( "NOME" ) );
-            produto.setPreco( columns.get( "PRECO" ) );
+            produto.setPreco( Integer.parseInt(columns.get( "PRECO" )) );
             produto.setDescricao( columns.get( "DESCRICAO" ) );
             produto.setQuantidade( columns.get( "QUANTIDADE" ) );
 

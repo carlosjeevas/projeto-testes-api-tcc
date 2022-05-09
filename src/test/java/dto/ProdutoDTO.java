@@ -13,7 +13,7 @@ public class ProdutoDTO {
 
     private String nome ;
 
-    private String preco;
+    private int preco;
 
     private String descricao;
 

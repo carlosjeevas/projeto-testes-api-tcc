@@ -43,23 +43,24 @@ public class BuscarUsuarioService {
 
 		ServiceBean.setIdUsuario(idUsuario);
 	}
-	
-	public void pegarEmailESenhaDeFormaAleatoria() {
 
-			Random numberRandom = new Random();
+	public void pegarEmailESenhaDeUsuarioComumEAdministrador(String tipoUsuario) {
 
-			JSONObject json = new JSONObject(ServiceBean.getResponse().asString().toString());
+		JSONObject json = new JSONObject(ServiceBean.getResponse().asString().toString());
 
-			int quantidadeIndiceDeUsuarios = json.getJSONArray("usuarios").length();
+		int quantidadeIndiceDeUsuarios = json.getJSONArray("usuarios").length();
 
-			int indiceUsuario = numberRandom.nextInt(quantidadeIndiceDeUsuarios);
+		for (int i = 0; i < quantidadeIndiceDeUsuarios; i++) {
+			String AdministradorOuComum = json.getJSONArray("usuarios").getJSONObject(i).getString("administrador");
+			if (tipoUsuario.equals(AdministradorOuComum)) {
+				String emailUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("email");
+				String senhaUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("password");
+				ServiceBean.setEmailUsuario(emailUsuario);
+				ServiceBean.setPasswordUsuario(senhaUsuario);
+				break;
+			}
+			}
 
-			String emailUsuario = json.getJSONArray("usuarios").getJSONObject(indiceUsuario).getString("email");
-			
-			String senhaUsuario = json.getJSONArray("usuarios").getJSONObject(indiceUsuario).getString("password");
-			
-			ServiceBean.setEmailUsuario(emailUsuario);
-			ServiceBean.setPasswordUsuario(senhaUsuario);
 		}
-	}
 
+	}
