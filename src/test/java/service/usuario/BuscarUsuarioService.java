@@ -14,35 +14,34 @@ import utils.PropertyReader;
 @Slf4j
 public class BuscarUsuarioService {
 
-	private final static String URL = PropertyReader.getProperty("urlUsuarios");
+    private final static String URL = PropertyReader.getProperty( "urlUsuarios" );
 
-	public void buscarUsuarios() {
+    public void buscarUsuarios() {
 
-		RequestSpecBuilder request = new RequestSpecBuilder();
+        RequestSpecBuilder request = new RequestSpecBuilder();
 
-		request.setAccept("*/*");
-		request.setContentType("application/json");
+        request.setAccept( "*/*" );
+        request.setContentType( "application/json" );
 
-		ServiceBean.setResponse(given().spec(request.build()).get(URL));
+        ServiceBean.setResponse( given().spec( request.build() ).get( URL ) );
 
-		log.info("Retorno da API Buscar Usuário");
-		ServiceBean.getResponse().then().log().all();
-	}
+        log.info( "Retorno da API Buscar Usuário" );
+        ServiceBean.getResponse().then().log().all();
+    }
 
-	public void pegarIdDeFormaAleatoria() {
+    public void pegarIdDeFormaAleatoria() {
 
-		Random numberRandom = new Random();
+        Random numberRandom = new Random();
+        JSONObject json = new JSONObject( ServiceBean.getResponse().asString().toString() );
 
-		JSONObject json = new JSONObject(ServiceBean.getResponse().asString().toString());
+        int quantidadeIndiceDeUsuarios = json.getJSONArray( "usuarios" ).length();
+        int indiceUsuario = numberRandom.nextInt( quantidadeIndiceDeUsuarios );
 
-		int quantidadeIndiceDeUsuarios = json.getJSONArray("usuarios").length();
+        String idUsuario = json.getJSONArray( "usuarios" ).getJSONObject( indiceUsuario ).getString( "_id" );
 
-		int indiceUsuario = numberRandom.nextInt(quantidadeIndiceDeUsuarios);
+        ServiceBean.setIdUsuario( idUsuario );
+    }
 
-		String idUsuario = json.getJSONArray("usuarios").getJSONObject(indiceUsuario).getString("_id");
-
-		ServiceBean.setIdUsuario(idUsuario);
-	}
 
 	public void pegarEmailESenhaDeUsuarioComumEAdministrador(String tipoUsuario) {
 
@@ -62,5 +61,4 @@ public class BuscarUsuarioService {
 			}
 
 		}
-
-	}
+}

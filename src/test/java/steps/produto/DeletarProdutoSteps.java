@@ -13,6 +13,7 @@ public class DeletarProdutoSteps {
 
     DeletarProdutoService deletar = new DeletarProdutoService();
 
+
     @Quando( "enviar os dados do produto cadastrado para a api de deleção" )
     public void envio_dados_para_api_de_delecao(  ) {
         deletar.deletarProdutoPorId( ServiceBean.getIdProduto() );

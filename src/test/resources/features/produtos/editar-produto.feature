@@ -2,7 +2,7 @@
 @all @editar_produto
 Funcionalidade: Editar usuário
 
-  Contexto: 
+  Contexto:
     Dado que realiza a busca de usuario via api
     E pegar email e senha para login de 'administrador'
     Quando realizar o login
@@ -17,7 +17,7 @@ Funcionalidade: Editar usuário
   Cenario: Editar produto com sucesso
     Quando enviar os dados para edição
       | NOME    | PRECO | DESCRICAO    | QUANTIDADE |
-      | Mouse X |   500 | É um teclado |          2 |
+      | Mouse X | 500   | É um teclado | 2          |
     E validar o retorno da api com status code "200"
     Então validar a mensagem retornada
       | Registro alterado com sucesso |

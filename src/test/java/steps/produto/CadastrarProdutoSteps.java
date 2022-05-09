@@ -35,4 +35,5 @@ public class CadastrarProdutoSteps {
 	public void guardo_id_produto() {
 		cadastrar.guardarIdProduto();
 	}
+
 }
