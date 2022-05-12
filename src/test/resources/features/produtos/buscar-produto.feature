@@ -7,7 +7,8 @@ Funcionalidade: Buscar produtos
     Então validar a lista de produtos retornada
     E validar o retorno da api com status code "200"
 
+    @teste
   Cenario: Buscar produto por número de identificação
-    Dado que realiza a busca de produto pelo numero de identificacao "BeeJh5lz3k6kSIzA"
+    Dado que realiza a busca de produto pelo numero de identificacao
     Então validar que retornou o produto
     E validar o retorno da api com status code "200"

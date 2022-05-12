@@ -29,6 +29,18 @@ public class BuscarUsuarioService {
         ServiceBean.getResponse().then().log().all();
     }
 
+    public void buscarUsuarioPorId(String idUsuario) {
+
+        RequestSpecBuilder request = new RequestSpecBuilder();
+
+        request.setAccept( "*/*" );
+        request.setContentType( "application/json" );
+
+        ServiceBean.setResponse( given().spec( request.build() ).get( String.format("%s/%s", URL, idUsuario) ) );
+
+        log.info( "Retorno da API Buscar Usuário por Id" );
+        ServiceBean.getResponse().then().log().all();
+    }
     public void pegarIdDeFormaAleatoria() {
 
         Random numberRandom = new Random();
@@ -51,14 +63,13 @@ public class BuscarUsuarioService {
 
 		for (int i = 0; i < quantidadeIndiceDeUsuarios; i++) {
 			String AdministradorOuComum = json.getJSONArray("usuarios").getJSONObject(i).getString("administrador");
-			if (tipoUsuario.equals(AdministradorOuComum)) {
-				String emailUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("email");
-				String senhaUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("password");
-				ServiceBean.setEmailUsuario(emailUsuario);
-				ServiceBean.setPasswordUsuario(senhaUsuario);
-				break;
+                if (tipoUsuario.equals(AdministradorOuComum)) {
+                    String emailUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("email");
+                    String senhaUsuario = json.getJSONArray("usuarios").getJSONObject(i).getString("password");
+                    ServiceBean.setEmailUsuario(emailUsuario);
+                    ServiceBean.setPasswordUsuario(senhaUsuario);
+                    break;
+                }
 			}
-			}
-
 		}
 }

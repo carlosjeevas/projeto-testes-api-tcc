@@ -3,6 +3,7 @@ package steps.produto;
 import bean.ServiceBean;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
+import org.json.JSONObject;
 import org.junit.Assert;
 import service.produtos.BuscarProdutoService;
 
@@ -15,9 +16,13 @@ public class BuscarProdutoSteps {
     	buscarProduto.buscarProduto();
     }
 
-    @Dado( "que realiza a busca de produto pelo numero de identificacao {string}" )
-    public void que_realizo_a_busca_de_produto_pelo_numero_de_identificacao( String id ) {
-        buscarProduto.buscarProdutoPorId(id);
+    @Dado( "que realiza a busca de produto pelo numero de identificacao" )
+    public void encontrarIdProduto() {
+        buscarProduto.buscarProduto();
+
+        JSONObject body = new JSONObject(ServiceBean.getResponse().asString().toString());
+
+        buscarProduto.buscarProdutoPorId(body.getJSONArray("produtos").getJSONObject(0).getString("_id"));
     }
 
     @Então( "validar a lista de produtos retornada" )
