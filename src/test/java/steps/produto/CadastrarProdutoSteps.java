@@ -23,7 +23,7 @@ public class CadastrarProdutoSteps {
 		produtoDTO.setNome(faker.commerce().productName());
 		produtoDTO.setPreco(30);
 		produtoDTO.setDescricao(faker.lorem().sentence());
-		produtoDTO.setQuantidade(faker.number().digit());
+		produtoDTO.setQuantidade(faker.number().numberBetween(1, 9));
 	}
 
 	@Quando("enviar os dados para a api de cadastro de produto")

@@ -26,7 +26,7 @@ public class EditarProdutoSteps {
             produto.setNome( columns.get( "NOME" ) );
             produto.setPreco( Integer.parseInt(columns.get( "PRECO" )) );
             produto.setDescricao( columns.get( "DESCRICAO" ) );
-            produto.setQuantidade( columns.get( "QUANTIDADE" ) );
+            produto.setQuantidade( Integer.parseInt(columns.get( "QUANTIDADE" )) );
 
             editar.editarProdutoPorId( produto );
         }

@@ -17,5 +17,7 @@ public class ProdutoDTO {
 
     private String descricao;
 
-    private String quantidade;
+    private int quantidade;
+    
+    
 }
