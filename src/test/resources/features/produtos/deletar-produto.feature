@@ -1,6 +1,6 @@
 #language: pt
 @all @deletar_produto
-Funcionalidade: deletar produto
+Funcionalidade: Deletar produto
 
   Contexto:
     Dado que realiza a busca de usuario via api

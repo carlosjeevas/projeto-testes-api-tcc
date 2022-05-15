@@ -1,6 +1,6 @@
 #language: pt
 @all @cadastrar_carrinho @deletar_carrinho @tes
-Funcionalidade: Cadastrar carrinho 
+Funcionalidade: Carrinho
 
   Contexto: Cadastar carrinho
   
